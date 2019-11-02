@@ -1,0 +1,13 @@
+version: '2'
+services:
+  jenkins:
+    image: jenkins:latest
+    ports:
+      - 8080:8080
+      - 50000:50000
+    # uncomment for docker in docker
+    privileged: true
+    volumes:
+        # enable persistent volume (warning: make sure that the local jenkins_home folder is created)
+        - ./var/jenkins_home:/var/jenkins_home
+    container_name: jenkins-docker
